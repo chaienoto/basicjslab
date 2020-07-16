@@ -1,14 +1,14 @@
 var message = ""
 var time = new Date()
-// var num1 = prompt("Nhập số thứ nhất: ")
-// var num2 = prompt("Nhập số thứ hai")
-// var sign = prompt("Phép toán bạn muốn thực hiên\n Cộng (+), Trừ (-), Nhân (*), Chia (/)")
+var num1 = prompt("Nhập số thứ nhất: ")
+var num2 = prompt("Nhập số thứ hai")
+var sign = prompt("Phép toán bạn muốn thực hiên\n Cộng (+), Trừ (-), Nhân (*), Chia (/)")
 
 window.onload = function () {
     if (time.getHours() > 12)
         message = "Xin chào buổi chiều!, "
     else message = "Xin chào buổi sáng!, "
-    // startExample1(sign, num1, num2)
+    startExample1(sign, num1, num2)
     
 }
 function startExample1(sign, num1, num2) {
@@ -86,22 +86,35 @@ function fillInfo() {
     inputs_doWhile = document.getElementById("selectBoxWithDoWhile");
     var selFor = document.createElement('select')
     var selWhile = document.createElement('select')
-    var w = 1
+    var selDoWhile = document.createElement('select')
+    var month = 1
+    var year = 1970
     document.getElementById("selectBoxWithFor").select = "true";
     console.log("i'm here")
-    for (i = 0; i<31; i++){
+    for (i = 1; i<=31; i++){
         selFor.appendChild(new Option(i,'option'))
         selFor.setAttribute("class", "select-selected");
-        selFor.selectedIndex = 0;
+        
+        selFor.selectedIndex = 7-1;
         inputs_for.appendChild(selFor)
     }
 
-    while (w <= 12){
-        selWhile.appendChild(new Option(w,'option'))
+    while (month <= 12){
+        selWhile.appendChild(new Option(month,'option'))
         selWhile.setAttribute("class", "select-selected");
+        
+        selWhile.selectedIndex = 10-1;
         inputs_while.appendChild(selWhile)
-        w++
+        month++
     }
+   
+    do {
+        selDoWhile.appendChild(new Option(year,'option'))
+        selDoWhile.setAttribute("class", "select-selected");
+        selDoWhile.selectedIndex = 1998 - 1970
+        inputs_doWhile.appendChild(selDoWhile)
+        year++
+    } while(year <= time.getFullYear()  )
 
 
 }
